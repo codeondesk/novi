@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.project1.R;
 import com.example.project1.io.APIClient;
@@ -21,7 +22,7 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity {
 
     EditText username,password;
-    private String token="6AANov3Vn6-a8--q9HTGBPLe-xTVZH3sbOSkuEseHHVzgcx9ILWUfRi1BOwWs65_6nraTCxZKtd2Cq29xy1AE8B9OjOQCNqmxpdBqBXUEe2drhng6jzcEtVXLrt84yb3XKbI5zETYlNygu7MnHN6c7Ek9KAX_ps0SWlue-QD6ariw6lpw4fzMjzqJbdy2ufei6q7VR8zU7AvfQJzGRi7Yw";
+    private String token="";
     public Intent i;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,20 +32,27 @@ public class MainActivity extends AppCompatActivity {
         password = (EditText) findViewById(R.id.password);
 
     }
-
     private  void login (){
         Login loggedin = new Login(username.getText().toString(),password.getText().toString());
         LoginEndPoint apiService = APIClient.getClient().create(LoginEndPoint.class);
         Call<User> call = apiService.login(loggedin);
         call.enqueue(new Callback<User>() {
             String token="";
+            String tokenType="";
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
                 if(response.isSuccessful()){
                     token=response.body().getAccess_token();
+                    tokenType=response.body().getToken_type();
                     System.out.println("TOKEN RECEIVED: "+token);
+                    Toast.makeText(getApplicationContext(), "Login Successful Token Received"+"\n"+tokenType+"\n"+token,Toast.LENGTH_LONG).show();
+                    //perasma se allh activity
+                    i = new Intent(MainActivity.this, recyActivity.class);
+                    i.putExtra(recyActivity.key, token);
+                    startActivity(i);
                 }else{
                     System.out.println("NO TOKEN FROM SERVER");
+                    Toast.makeText(getApplicationContext(), "NO TOKEN FROM SERVER" ,Toast.LENGTH_LONG).show();
                 }
             }
 
@@ -52,17 +60,13 @@ public class MainActivity extends AppCompatActivity {
             public void onFailure(Call<User> call, Throwable t) {
                 Log.e("token error", t.toString());
                 System.out.println("NO TOKEN FROM CONNECTION");
+                Toast.makeText(getApplicationContext(), "NO TOKEN FROM CONNECTION" ,Toast.LENGTH_LONG).show();
+
             }
 
         });
 
     }
-
-    public void getToken(View view){
-         login();
-         i = new Intent(MainActivity.this, recyActivity.class);
-         i.putExtra(recyActivity.key, token);
-         startActivity(i);
-    }
+    public void getToken(View view){ login(); }
 
 }

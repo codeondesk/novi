@@ -67,16 +67,15 @@
                 android:textColorHint="#FFFFFF" />
 
             <Button
-                android:id="@+id/login"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="15dp"
-                android:onClick="getToken"
                 android:backgroundTint="@color/white"
-                android:textColor="@color/black"
+                android:onClick="getToken"
                 android:text="Login"
                 android:textAllCaps="false"
+                android:textColor="@color/black"
                 android:textSize="16sp" />
 
         </LinearLayout>

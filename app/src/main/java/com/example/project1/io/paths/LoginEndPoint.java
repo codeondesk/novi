@@ -8,7 +8,7 @@ import retrofit2.http.POST;
 
 public interface LoginEndPoint {
 
-    @POST("/login")
+    @POST("/v2/5d8e4bd9310000a2612b5448")
     Call <User> login(@Body Login login);
 
 }

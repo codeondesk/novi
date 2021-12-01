@@ -1,8 +1,8 @@
 package com.example.project1.io;
 
 public class User {
-    private String access_token="6AANov3Vn6-a8--q9HTGBPLe-xTVZH3sbOSkuEseHHVzgcx9ILWUfRi1BOwWs65_6nraTCxZKtd2Cq29xy1AE8B9OjOQCNqmxpdBqBXUEe2drhng6jzcEtVXLrt84yb3XKbI5zETYlNygu7MnHN6c7Ek9KAX_ps0SWlue-QD6ariw6lpw4fzMjzqJbdy2ufei6q7VR8zU7AvfQJzGRi7Yw";
-    private String token_type = "Bearer";
+    private String access_token;
+    private String token_type;
 
 
     public String getAccess_token() {
