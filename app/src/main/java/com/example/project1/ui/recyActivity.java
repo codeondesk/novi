@@ -5,11 +5,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.util.Log;
 
 import com.example.project1.R;
 import com.example.project1.io.APIClient;
 import com.example.project1.io.gamemodels.BetView;
+import com.example.project1.io.gamemodels.Event;
 import com.example.project1.io.gamemodels.GamesReceiver;
 import com.example.project1.io.headmodels.BetViews;
 import com.example.project1.io.headmodels.HeadLines;
@@ -34,7 +36,7 @@ public class recyActivity extends AppCompatActivity {
     private GameAdapter gameAdapter;
 
     List<BetViews> headLines = new ArrayList<>();
-    List<BetView> games = new ArrayList<>();
+    List<Event> events = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,12 +55,15 @@ public class recyActivity extends AppCompatActivity {
         loadHeadLines();
 
         //List 2
-         recy2 = findViewById(R.id.VerticalRecyclerView);
-         LinearLayoutManager verticalManager = new LinearLayoutManager(this);
+        startGamesCall();
+        recy2 = findViewById(R.id.VerticalRecyclerView);
+        LinearLayoutManager verticalManager = new LinearLayoutManager(this);
          recy2.setLayoutManager(verticalManager);
-         gameAdapter = new GameAdapter(games);
+         gameAdapter = new GameAdapter(events);
          recy2.setAdapter(gameAdapter);
-         startGamesCall();
+
+
+
     }
 
     private void loadHeadLines() {
@@ -74,11 +79,12 @@ public class recyActivity extends AppCompatActivity {
                 if(response.isSuccessful()){
                     List<BetViews> betviews = response.body().get(0).getBetViews();
                     for (BetViews betview : betviews) {
-                        System.out.println("---------------------------------------------------------------------"+"\n"+
+                        System.out.println("----------------------HEADLINES----------------------------------"+"\n"+
                                 "---------------------------------------------------------------------"+"\n"+
-                                "getCompetitor1Caption: " + betview.getCompetitor1Caption() +
-                                "; getCompetitor2Caption: " + betview.getCompetitor2Caption() +
-                                "; getStartTime:  " + betview.getStartTime()+"\n"+
+                                "---------------------------------------------------------------------"+"\n"+
+                                "Competitor1Caption: " + betview.getCompetitor1Caption()+"\n" +
+                                "Competitor2Caption: " + betview.getCompetitor2Caption() +"\n"+
+                                "StartTime:  " + betview.getStartTime()+"\n"+
                                 "---------------------------------------------------------------------"+"\n"+
                                 "---------------------------------------------------------------------"+"\n"
                         );
@@ -103,25 +109,31 @@ public class recyActivity extends AppCompatActivity {
         });
 
     }
+
+
+
+
+
     public void startGamesCall(){
         GamesEndPoints apiService = APIClient.getClient().create(GamesEndPoints.class);
-        Call<List<GamesReceiver>> call = apiService.getBetViews(token);
+        Call<List<GamesReceiver>> call = apiService.getGames(token);
+
         call.enqueue(new Callback<List<GamesReceiver>>() {
             @Override
             public void onResponse(Call<List<GamesReceiver>> call, Response<List<GamesReceiver>> response) {
                 //usersAdapter.updateData(response.body());
-                games.clear();
-                games.addAll(response.body().get(0).getBetViews());
+                events.clear();
+                events.addAll(response.body().get(0).getBetViews().get(0).getCompetitions().get(0).getEvents());
                 gameAdapter.notifyDataSetChanged();
                 if(response.isSuccessful()){
-                    List<BetView> betviews = response.body().get(0).getBetViews();
-                    games = response.body().get(0).getBetViews();
-                    for (BetView betview : betviews) {
-                        System.out.println("---------------------------------------------------------------------"+"\n"+
+                    List<Event> events = response.body().get(0).getBetViews().get(0).getCompetitions().get(0).getEvents();
+                    for (Event event : events) {
+                        System.out.println("----------------------GAMES----------------------------------"+"\n"+
                                 "---------------------------------------------------------------------"+"\n"+
-                                "getCompetitor1Caption: " + betview.getCompetitions().get(0).getEvents().get(0).getAdditionalCaptions().getCompetitor1() +
-                                "; getCompetitor2Caption: " + betview.getCompetitions().get(0).getEvents().get(0).getAdditionalCaptions().getCompetitor1() +
-                                "; getStartTime:  " + betview.getCompetitions().get(0).getEvents().get(0).getLiveData().getElapsed()+"\n"+
+                                "---------------------------------------------------------------------"+"\n"+
+                                "Competitor1: " + event.getAdditionalCaptions().getCompetitor1()+"\n" +
+                                "Competitor2: " + event.getAdditionalCaptions().getCompetitor2()+"\n" +
+                                "Elapsed:  " + event.getLiveData().getElapsed()+"\n"+
                                 "---------------------------------------------------------------------"+"\n"+
                                 "---------------------------------------------------------------------"+"\n"
                         );
@@ -147,4 +159,8 @@ public class recyActivity extends AppCompatActivity {
         token = extras.getString(key);
         System.out.println(token);
     }
+
+
+
+
 }

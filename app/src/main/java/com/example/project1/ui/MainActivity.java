@@ -4,11 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.InputFilter;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.example.project1.R;
 import com.example.project1.io.APIClient;
@@ -34,35 +32,31 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
-    private void login(){
+    private  void login (){
         Login loggedin = new Login(username.getText().toString(),password.getText().toString());
         LoginEndPoint apiService = APIClient.getClient().create(LoginEndPoint.class);
         Call<User> call = apiService.login(loggedin);
         call.enqueue(new Callback<User>() {
+            String token="";
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
                 if(response.isSuccessful()){
                     token=response.body().getAccess_token();
-                    System.out.println("TOKEN:"+token);
-                    Toast toast = Toast.makeText(getApplicationContext(), "TOKENISHERE:"+token , Toast.LENGTH_SHORT);toast.show();
+                    System.out.println("TOKEN RECEIVED: "+token);
                 }else{
-                    System.out.println("NO TOKEN");
-                    Toast toast = Toast.makeText(getApplicationContext(), "NO TOKEN" , Toast.LENGTH_SHORT);toast.show();
-
+                    System.out.println("NO TOKEN FROM SERVER");
                 }
             }
 
             @Override
             public void onFailure(Call<User> call, Throwable t) {
                 Log.e("token error", t.toString());
+                System.out.println("NO TOKEN FROM CONNECTION");
             }
 
         });
 
     }
-
-
 
     public void getToken(View view){
          login();
