@@ -19,6 +19,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/white"
             android:textSize="18sp"
+            android:textStyle="bold"
             tools:text="competitor1Caption" />
 
         <TextView
@@ -27,6 +28,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/white"
             android:textSize="18sp"
+            android:textStyle="bold"
             tools:text="competitor2Caption" />
 
         <LinearLayout
@@ -78,6 +80,7 @@
             android:layout_gravity="right"
             android:textColor="@color/white"
             android:textSize="18sp"
+            android:textStyle="bold"
             tools:text="startTime" />
 
     </LinearLayout>

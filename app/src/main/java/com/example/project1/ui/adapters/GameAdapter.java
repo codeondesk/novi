@@ -72,15 +72,6 @@ public class GameAdapter extends RecyclerView.Adapter<GameAdapter.ItemViewHolder
         holder.competitor1.setText(event.get(position).getAdditionalCaptions().getCompetitor1());
         holder.competitor2.setText(event.get(position).getAdditionalCaptions().getCompetitor2());
 
-        if(!event.get(position).getMarkets().isEmpty())
-        {
-        holder.button1.setText("1             "+event.get(position).getMarkets().get(1).getBetItems().get(0).getOddsText());
-        holder.button2.setText("2             "+event.get(position).getMarkets().get(1).getBetItems().get(1).getOddsText());
-        }else{
-            System.out.println("---------------null market (1,X,2) -----------------");
-
-        }
-
         //date edit format for update
         String elapsedtimefinal =Utils.correctdateformer(event.get(position).getLiveData().getElapsed()); //Format Type: "HH:MM:SS"
         String[] tokens = elapsedtimefinal.split(":");
@@ -90,6 +81,14 @@ public class GameAdapter extends RecyclerView.Adapter<GameAdapter.ItemViewHolder
         System.out.println("---------------Time Spliting: Hours: "+hours+" Minutes: " + minutes +" Seconds: "+ seconds+"-----------------");
         holder.Elapsed1.setBase(SystemClock.elapsedRealtime() - ( hours * 3600000  +  minutes * 60000     +       seconds * 1000));
         holder.Elapsed1.start();
+
+        if(!event.get(position).getMarkets().isEmpty())
+        {
+            holder.button1.setText("1             "+event.get(position).getMarkets().get(1).getBetItems().get(0).getOddsText());
+            holder.button2.setText("2             "+event.get(position).getMarkets().get(1).getBetItems().get(1).getOddsText());
+        }else{
+            System.out.println("---------------null market (1,X,2) -----------------");
+        }
     }
 
 
