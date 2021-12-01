@@ -71,29 +71,12 @@ public class GameAdapter extends RecyclerView.Adapter<GameAdapter.ItemViewHolder
         holder.competitor2.setText(event.get(position).getAdditionalCaptions().getCompetitor2());
         holder.Elapsed.setText(event.get(position).getLiveData().getElapsed());
 
-        String elapsedtimefinal =correctdateformer(event.get(position).getLiveData().getElapsed());
+        String elapsedtimefinal =Utils.correctdateformer(event.get(position).getLiveData().getElapsed());
         holder.Elapsed.setText(elapsedtimefinal);
         System.out.println("GAME TIME: "+elapsedtimefinal);
 
     }
 
-    public String correctdateformer(String former){
-
-            Date createDate = Utils.toDate(former, "HH:mm:ss.SSSSSSS");
-
-            if(createDate!=null){
-                String formatedCreatedDate = Utils.toString(createDate, "HH:mm:ss");
-                return formatedCreatedDate;
-            }else{
-
-                createDate = Utils.toDate(former, "SSSSSSSS.HH:mm:ss.SSSSSSS");
-                String formatedCreatedDate = Utils.toString(createDate, "HH:mm:ss");
-                return formatedCreatedDate;
-            }
-
-
-
-    }
 
 
 
