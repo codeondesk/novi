@@ -57,7 +57,6 @@ public class GameAdapter extends RecyclerView.Adapter<GameAdapter.ItemViewHolder
             button2 = (Button) itemView.findViewById(R.id.button2);
             buttonx = (Button) itemView.findViewById(R.id.buttonx);
 
-
         }
     }
 

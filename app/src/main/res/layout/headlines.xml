@@ -39,29 +39,29 @@
             <Button
                 android:id="@+id/assos"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="55dp"
                 android:layout_weight="1"
-                android:text="1"
                 android:backgroundTint="@color/white"
-                android:textColor="@color/black"/>
+                android:text="1"
+                android:textColor="@color/black" />
 
             <Button
                 android:id="@+id/xi"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="55dp"
                 android:layout_weight="1"
-                android:text="x"
                 android:backgroundTint="@color/white"
-                android:textColor="@color/black"/>
+                android:text="x"
+                android:textColor="@color/black" />
 
             <Button
                 android:id="@+id/diplo"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="55dp"
                 android:layout_weight="1"
-                android:text="2"
                 android:backgroundTint="@color/white"
-                android:textColor="@color/black"/>
+                android:text="2"
+                android:textColor="@color/black" />
 
         </LinearLayout>
 

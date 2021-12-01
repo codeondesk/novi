@@ -22,7 +22,7 @@
                 android:id="@+id/competitor1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="competitor1"
+                android:text="@string/competitor1"
                 android:textColor="@color/white"
                 android:textSize="18sp" />
 
@@ -45,16 +45,15 @@
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:backgroundTint="@color/cardview_dark_background"
-                android:text="1"
-                android:textColor="@color/white" />
+                android:background="@drawable/mybutton"
+                android:text="1" />
 
             <Button
                 android:id="@+id/buttonx"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:backgroundTint="@color/cardview_dark_background"
+                android:background="@drawable/mybutton"
                 android:text="x"
                 android:textColor="@color/white" />
 
@@ -63,7 +62,7 @@
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:backgroundTint="@color/cardview_dark_background"
+                android:background="@drawable/mybutton"
                 android:text="2"
                 android:textColor="@color/white" />
         </LinearLayout>

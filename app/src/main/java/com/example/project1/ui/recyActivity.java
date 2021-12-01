@@ -75,12 +75,12 @@ public class recyActivity extends AppCompatActivity {
                     headLines.addAll(response.body().get(0).getBetViews());
                     headLinesAdapter.notifyDataSetChanged();
                 }else{
-                    System.out.println("response failure response failure response failure response failure response failure response failure");
+                    System.out.println("response failure response failure");
                 }
             }
             @Override
             public void onFailure(Call<List<HeadLinesReceiver>> call, Throwable t) {
-                Log.e("Failure Failure Failure Failure Failure Failure Failure Failure Failure Failure Failure Failure Failure Failure", t.toString());
+                Log.e("Call Failure Call Failure Call Failure", t.toString());
             }
         });
     }
@@ -91,17 +91,18 @@ public class recyActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<GamesReceiver>> call, Response<List<GamesReceiver>> response) {
                 if(response.isSuccessful()){
+                    //add caption category
                     gamecategory.setText(response.body().get(0).getBetViews().get(0).getCompetitions().get(0).getCaption());
                     events.clear();
                     events.addAll(response.body().get(0).getBetViews().get(0).getCompetitions().get(0).getEvents());
                     gameAdapter.notifyDataSetChanged();
                 }else{
-                    System.out.println("response failure response failure response failure response failure response failure response failure");
+                    System.out.println("response failure response failure");
                 }
             }
             @Override
             public void onFailure(Call<List<GamesReceiver>> call, Throwable t) {
-                Log.e("Failure Failure Failure Failure Failure Failure Failure Failure Failure Failure Failure Failure Failure Failure ", t.toString());
+                Log.e("Call Failure Call Failure Call Failure ", t.toString());
             }
         });
     }
