@@ -47,6 +47,7 @@ public class GameAdapter extends RecyclerView.Adapter<GameAdapter.ItemViewHolder
         Chronometer Elapsed1;
         Button button1;
         Button button2;
+        Button buttonx;
         public ItemViewHolder(View itemView) {
             super(itemView);
             competitor1 = (TextView) itemView.findViewById(R.id.competitor1);
@@ -54,6 +55,8 @@ public class GameAdapter extends RecyclerView.Adapter<GameAdapter.ItemViewHolder
             Elapsed1 = (Chronometer)itemView.findViewById(R.id.chronometer);
             button1 = (Button) itemView.findViewById(R.id.button1);
             button2 = (Button) itemView.findViewById(R.id.button2);
+            buttonx = (Button) itemView.findViewById(R.id.buttonx);
+
 
         }
     }
@@ -74,7 +77,7 @@ public class GameAdapter extends RecyclerView.Adapter<GameAdapter.ItemViewHolder
         holder.button1.setText("1             "+event.get(position).getMarkets().get(1).getBetItems().get(0).getOddsText());
         holder.button2.setText("2             "+event.get(position).getMarkets().get(1).getBetItems().get(1).getOddsText());
         }else{
-            System.out.println("---------------null market team-----------------");
+            System.out.println("---------------null market (1,X,2) -----------------");
 
         }
 
