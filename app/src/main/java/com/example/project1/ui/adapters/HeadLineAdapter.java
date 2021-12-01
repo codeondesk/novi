@@ -3,6 +3,7 @@ package com.example.project1.ui.adapters;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -26,12 +27,16 @@ public class HeadLineAdapter extends RecyclerView.Adapter<HeadLineAdapter.ItemVi
         TextView competitor1Caption;
         TextView competitor2Caption;
         TextView startTime;
+        Button buttonAssos,buttonDiplo,buttonXi;
 
         public ItemViewHolder(View itemView) {
             super(itemView);
             competitor1Caption = (TextView) itemView.findViewById(R.id.competitor1Caption);
             competitor2Caption = (TextView) itemView.findViewById(R.id.competitor2Caption);
             startTime = (TextView) itemView.findViewById(R.id.startTime);
+            buttonAssos = (Button) itemView.findViewById(R.id.buttonAssos);
+            buttonDiplo = (Button) itemView.findViewById(R.id.ButtonDiplo);
+            buttonXi = (Button) itemView.findViewById(R.id.buttonXi);
 
         }
     }
@@ -44,9 +49,18 @@ public class HeadLineAdapter extends RecyclerView.Adapter<HeadLineAdapter.ItemVi
 
     @Override
     public void onBindViewHolder(ItemViewHolder holder, int position) {
-        holder.competitor1Caption.setText(headLines.get(position).getCompetitor1Caption());
-        holder.competitor2Caption.setText(headLines.get(position).getCompetitor2Caption());
-        holder.startTime.setText(headLines.get(position).getStartTime());
+        if(headLines.get(position).getCompetitor1Caption()!=null) {
+            holder.competitor1Caption.setText(headLines.get(position).getCompetitor1Caption());
+            holder.competitor2Caption.setText(headLines.get(position).getCompetitor2Caption());
+            holder.startTime.setText(headLines.get(position).getStartTime());
+        }else{
+            holder.buttonAssos.setVisibility(View.GONE);
+            holder.buttonDiplo.setVisibility(View.GONE);
+            holder.buttonXi.setVisibility(View.GONE);
+            System.out.println("marketing");
+            holder.competitor1Caption.setText("marketing page!");
+
+        }
     }
 
     @Override
