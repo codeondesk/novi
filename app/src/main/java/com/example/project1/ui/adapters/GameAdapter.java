@@ -83,8 +83,8 @@ public class GameAdapter extends RecyclerView.Adapter<GameAdapter.ItemViewHolder
 
         if(!event.get(position).getMarkets().isEmpty())
         {
-            holder.button1.setText("1         "+event.get(position).getMarkets().get(1).getBetItems().get(0).getOddsText());
-            holder.button2.setText("2         "+event.get(position).getMarkets().get(1).getBetItems().get(1).getOddsText());
+            holder.button1.setText("1       "+event.get(position).getMarkets().get(1).getBetItems().get(0).getOddsText());
+            holder.button2.setText("2       "+event.get(position).getMarkets().get(1).getBetItems().get(1).getOddsText());
         }else{
             System.out.println("---------------null market (1,X,2) -----------------");
         }
