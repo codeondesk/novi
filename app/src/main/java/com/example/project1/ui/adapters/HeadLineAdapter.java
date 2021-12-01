@@ -57,9 +57,8 @@ public class HeadLineAdapter extends RecyclerView.Adapter<HeadLineAdapter.ItemVi
             holder.buttonAssos.setVisibility(View.GONE);
             holder.buttonDiplo.setVisibility(View.GONE);
             holder.buttonXi.setVisibility(View.GONE);
-            System.out.println("marketing");
+            System.out.println("marketing page!");
             holder.competitor1Caption.setText("marketing page!");
-
         }
     }
 
