@@ -16,28 +16,19 @@ public class HeadLineAdapter extends RecyclerView.Adapter<HeadLineAdapter.ItemVi
     private List<BetViews> headLines;
     private int rowLayout=R.layout.headlines;
 
-    public HeadLineAdapter(List<BetViews> headLines) {
-        this.setHeadLines(headLines);
-    }
-
+    //constructor
+    public HeadLineAdapter(List<BetViews> headLines) {this.setHeadLines(headLines);}
+    //geters seters
     public List<BetViews> getHeadLines() {return headLines;}
-
     public void setHeadLines(List<BetViews> headLines) {this.headLines = headLines;}
 
-
-
-
     public static class ItemViewHolder extends RecyclerView.ViewHolder {
-
-
         TextView competitor1Caption;
         TextView competitor2Caption;
         TextView startTime;
 
-
-
-        public ItemViewHolder(View itemView) {
-            super(itemView);
+        public ItemViewHolder(View view) {
+            super(view);
             competitor1Caption = (TextView) itemView.findViewById(R.id.competitor1Caption);
             competitor2Caption = (TextView) itemView.findViewById(R.id.competitor2Caption);
             startTime = (TextView) itemView.findViewById(R.id.startTime);
@@ -45,13 +36,9 @@ public class HeadLineAdapter extends RecyclerView.Adapter<HeadLineAdapter.ItemVi
         }
     }
 
-
-
-
     @Override
     public ItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext())
-                .inflate(rowLayout, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(rowLayout, parent, false);
         return new ItemViewHolder(view);
     }
 
@@ -60,8 +47,6 @@ public class HeadLineAdapter extends RecyclerView.Adapter<HeadLineAdapter.ItemVi
         holder.competitor1Caption.setText(headLines.get(position).getCompetitor1Caption());
         holder.competitor2Caption.setText(headLines.get(position).getCompetitor2Caption());
         holder.startTime.setText(headLines.get(position).getStartTime());
-
-
     }
 
     @Override

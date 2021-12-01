@@ -27,7 +27,6 @@ public class Utils {
     public static String correctdateformer(String former){
 
         Date createDate = Utils.toDate(former, "HH:mm:ss.SSSSSSS");
-
         if(createDate!=null){
             String formatedCreatedDate = Utils.toString(createDate, "HH:mm:ss");
             return formatedCreatedDate;

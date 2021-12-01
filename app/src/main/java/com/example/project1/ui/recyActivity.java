@@ -52,13 +52,11 @@ public class recyActivity extends AppCompatActivity {
         loadHeadLines();
 
         //Vertical RecyclerView
-        startGamesCall();
-        recy2 = findViewById(R.id.VerticalRecyclerView);
         LinearLayoutManager verticalManager = new LinearLayoutManager(this);
          recy2.setLayoutManager(verticalManager);
          gameAdapter = new GameAdapter(events);
          recy2.setAdapter(gameAdapter);
-
+        startGamesCall();
     }
 
     private void loadHeadLines() {
@@ -106,8 +104,4 @@ public class recyActivity extends AppCompatActivity {
         token = extras.getString(key);
         System.out.println("Received Token : "+token);
     }
-
-
-
-
 }

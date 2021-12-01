@@ -22,7 +22,6 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity {
 
     EditText username,password;
-    private String token="";
     public Intent i;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +36,8 @@ public class MainActivity extends AppCompatActivity {
         LoginEndPoint apiService = APIClient.getClient().create(LoginEndPoint.class);
         Call<User> call = apiService.login(loggedin);
         call.enqueue(new Callback<User>() {
-            String token="";
-            String tokenType="";
+            private String token="";
+            private String tokenType="";
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
                 if(response.isSuccessful()){
@@ -63,9 +62,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "NO TOKEN FROM CONNECTION" ,Toast.LENGTH_LONG).show();
 
             }
-
         });
-
     }
     public void getToken(View view){ login(); }
 
