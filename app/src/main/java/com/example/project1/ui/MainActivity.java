@@ -44,11 +44,11 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<User> call, Response<User> response) {
                 if(response.isSuccessful()){
                     token=response.body().getAccess_token();
-                    System.out.println("TOKENISHERE:"+token);
+                    System.out.println("TOKEN:"+token);
                     Toast toast = Toast.makeText(getApplicationContext(), "TOKENISHERE:"+token , Toast.LENGTH_SHORT);toast.show();
                 }else{
-                    System.out.println("NO TOKEN NO TOKEN NO TOKEN NO TOKEN NO TOKEN NO TOKEN NO TOKEN");
-                    Toast toast = Toast.makeText(getApplicationContext(), "NO TOKEN NO TOKEN NO TOKEN NO TOKEN NO TOKEN NO TOKEN NO TOKEN" , Toast.LENGTH_SHORT);toast.show();
+                    System.out.println("NO TOKEN");
+                    Toast toast = Toast.makeText(getApplicationContext(), "NO TOKEN" , Toast.LENGTH_SHORT);toast.show();
 
                 }
             }
