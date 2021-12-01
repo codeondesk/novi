@@ -1,6 +1,7 @@
 package com.example.project1.io.gamemodels;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Market {
     private int marketId;

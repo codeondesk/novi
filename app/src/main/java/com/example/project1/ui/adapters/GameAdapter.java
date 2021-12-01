@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -44,11 +45,15 @@ public class GameAdapter extends RecyclerView.Adapter<GameAdapter.ItemViewHolder
         TextView competitor1;
         TextView competitor2;
         Chronometer Elapsed1;
-        public ItemViewHolder(View view) {
-            super(view);
+        Button button1;
+        Button button2;
+        public ItemViewHolder(View itemView) {
+            super(itemView);
             competitor1 = (TextView) itemView.findViewById(R.id.competitor1);
             competitor2 = (TextView) itemView.findViewById(R.id.competitor2);
             Elapsed1 = (Chronometer)itemView.findViewById(R.id.chronometer);
+            button1 = (Button) itemView.findViewById(R.id.button1);
+            button2 = (Button) itemView.findViewById(R.id.button2);
 
         }
     }
@@ -63,6 +68,15 @@ public class GameAdapter extends RecyclerView.Adapter<GameAdapter.ItemViewHolder
     public void onBindViewHolder(ItemViewHolder holder, int position) {
         holder.competitor1.setText(event.get(position).getAdditionalCaptions().getCompetitor1());
         holder.competitor2.setText(event.get(position).getAdditionalCaptions().getCompetitor2());
+
+        if(!event.get(position).getMarkets().isEmpty())
+        {
+        holder.button1.setText("1             "+event.get(position).getMarkets().get(1).getBetItems().get(0).getOddsText());
+        holder.button2.setText("2             "+event.get(position).getMarkets().get(1).getBetItems().get(1).getOddsText());
+        }else{
+            System.out.println("---------------null market team-----------------");
+
+        }
 
         //date edit format for update
         String elapsedtimefinal =Utils.correctdateformer(event.get(position).getLiveData().getElapsed()); //Format Type: "HH:MM:SS"

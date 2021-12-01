@@ -27,8 +27,8 @@ public class HeadLineAdapter extends RecyclerView.Adapter<HeadLineAdapter.ItemVi
         TextView competitor2Caption;
         TextView startTime;
 
-        public ItemViewHolder(View view) {
-            super(view);
+        public ItemViewHolder(View itemView) {
+            super(itemView);
             competitor1Caption = (TextView) itemView.findViewById(R.id.competitor1Caption);
             competitor2Caption = (TextView) itemView.findViewById(R.id.competitor2Caption);
             startTime = (TextView) itemView.findViewById(R.id.startTime);

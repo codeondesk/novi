@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
 
 import com.example.project1.R;
 import com.example.project1.io.APIClient;
@@ -18,6 +19,8 @@ import com.example.project1.io.paths.HeadlinesEndPoints;
 import com.example.project1.ui.adapters.GameAdapter;
 import com.example.project1.ui.adapters.HeadLineAdapter;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,6 +32,7 @@ public class recyActivity extends AppCompatActivity {
     static final String key = "tokenpassing";
     private Bundle extras;
     private String token;
+    TextView gamecategory;
     RecyclerView recy1,recy2;
     private HeadLineAdapter headLinesAdapter;
     private GameAdapter gameAdapter;
@@ -41,6 +45,7 @@ public class recyActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recy);
         tokenPass();
+        gamecategory=(TextView)findViewById(R.id.gamecategory);
         recy1 = (RecyclerView) findViewById(R.id.HorizontialRecyclerView);
         recy2 = (RecyclerView) findViewById(R.id.VerticalRecyclerView);
 
@@ -86,6 +91,7 @@ public class recyActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<GamesReceiver>> call, Response<List<GamesReceiver>> response) {
                 if(response.isSuccessful()){
+                    gamecategory.setText(response.body().get(0).getBetViews().get(0).getCompetitions().get(0).getCaption());
                     events.clear();
                     events.addAll(response.body().get(0).getBetViews().get(0).getCompetitions().get(0).getEvents());
                     gameAdapter.notifyDataSetChanged();

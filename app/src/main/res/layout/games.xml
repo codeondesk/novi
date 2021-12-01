@@ -41,7 +41,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/assos1"
+                android:id="@+id/button1"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -50,7 +50,7 @@
                 android:textColor="@color/black" />
 
             <Button
-                android:id="@+id/xiX"
+                android:id="@+id/buttonx"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -59,7 +59,7 @@
                 android:textColor="@color/black" />
 
             <Button
-                android:id="@+id/diplo1"
+                android:id="@+id/button2"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
