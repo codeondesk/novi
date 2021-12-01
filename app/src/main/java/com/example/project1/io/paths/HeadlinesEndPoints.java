@@ -11,16 +11,6 @@ import retrofit2.http.Header;
 public interface HeadlinesEndPoints {
         @GET("/v2/5d711461330000d135779748")
         Call<List<HeadLinesReceiver>> getBetViews(@Header("Authorization") String authToken);
-
-
-
-
-
-    //@GET("/v2/5d711461330000d135779748")
-    //Call<List<HeadLines>> getBetViews();
-
-
-
     }
 
 
