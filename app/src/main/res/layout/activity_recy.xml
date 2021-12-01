@@ -28,12 +28,12 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/HorizontialRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal" />
+                android:orientation="horizontal"
+                android:layout_margin="8dp" />
 
             <TextView
                 android:id="@+id/gamecategory"
@@ -48,19 +48,12 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/VerticalRecyclerView"
                 android:layout_width="match_parent"
-                android:layout_height="350dp" >
+                android:layout_height="350dp"
+                android:layout_margin="8dp"
+                />
 
-            </androidx.recyclerview.widget.RecyclerView>
 
-            <TextView
-                android:id="@+id/gamecategory2"
-                style="@android:style/TextAppearance"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="10dp"
-                android:text="Το height το έβαλα 350dp αντι για wrap για να δείτε ότι λειτουργεί το scroll στο recycler και τα timers δεν μπερδεύονται!"
-                android:textColor="#F8F5F5" />
+
 
 
         </LinearLayout>
