@@ -77,7 +77,7 @@ public class GameAdapter extends RecyclerView.Adapter<GameAdapter.ItemViewHolder
         int hours = Integer.parseInt(tokens[0]);
         int minutes = Integer.parseInt(tokens[1]);
         int seconds = Integer.parseInt(tokens[2]);
-        System.out.println("---------------Time Spliting: Hours: "+hours+" Minutes: " + minutes +" Seconds: "+ seconds+"-----------------");
+        System.out.println("---------------Time Splitting: Hours: "+hours+" Minutes: " + minutes +" Seconds: "+ seconds+"-----------------");
         holder.Elapsed1.setBase(SystemClock.elapsedRealtime() - ( hours * 3600000  +  minutes * 60000     +       seconds * 1000));
         holder.Elapsed1.start();
 
