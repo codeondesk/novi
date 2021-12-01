@@ -8,6 +8,8 @@ public class Competition{
     @SerializedName("events")
     private List<Event> events;
     private String caption;
+    private int betContextId;
+    private String regionCaption;
 
     public String getCaption() {
         return caption;
@@ -23,5 +25,21 @@ public class Competition{
 
     public void setEvents(List<Event> events) {
         this.events = events;
+    }
+
+    public int getBetContextId() {
+        return betContextId;
+    }
+
+    public void setBetContextId(int betContextId) {
+        this.betContextId = betContextId;
+    }
+
+    public String getRegionCaption() {
+        return regionCaption;
+    }
+
+    public void setRegionCaption(String regionCaption) {
+        this.regionCaption = regionCaption;
     }
 }

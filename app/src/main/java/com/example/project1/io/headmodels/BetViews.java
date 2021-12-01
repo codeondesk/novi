@@ -9,7 +9,6 @@ public class BetViews {
     private String startTime;
     private String competitor1Caption;
     private String competitor2Caption;
-
     private int betContextId;
     private int marketViewGroupId;
     private int marketViewId;
@@ -42,62 +41,123 @@ public class BetViews {
     }
     public void setCompetitor2Caption(String competitor2Caption) { this.competitor2Caption = competitor2Caption; }
 
-
-
-
-    public class BetItem{
-        public int id;
-        public String code;
-        public String caption;
-        public Object instanceCaption;
-        public double price;
-        public String oddsText;
-        public boolean isAvailable;
+    public int getBetContextId() {
+        return betContextId;
     }
 
-    public class QuarterScore{
-        public String caption;
-        public int homeScore;
-        public int awayScore;
+    public void setBetContextId(int betContextId) {
+        this.betContextId = betContextId;
     }
 
-    public class LiveData{
-        public String remaining;
-        public double remainingSeconds;
-        public int homePoints;
-        public int awayPoints;
-        public List<QuarterScore> quarterScores;
-        public boolean homePossession;
-        public boolean supportsAchievements;
-        public String liveStreamingCountries;
-        public int sportradarMatchId;
-        public Date referenceTime;
-        public int referenceTimeUnix;
-        public String elapsed;
-        public double elapsedSeconds;
-        public String duration;
-        public double durationSeconds;
-        public Object timeToNextPhase;
-        public Object timeToNextPhaseSeconds;
-        public String phaseSysname;
-        public String phaseCaption;
-        public String phaseCaptionLong;
-        public boolean isLive;
-        public boolean isInPlay;
-        public boolean isInPlayPaused;
-        public boolean isInterrupted;
-        public boolean supportsActions;
-        public Object timeline;
-        public int adjustTimeMillis;
+    public int getMarketViewGroupId() {
+        return marketViewGroupId;
     }
 
+    public void setMarketViewGroupId(int marketViewGroupId) {
+        this.marketViewGroupId = marketViewGroupId;
+    }
 
+    public int getMarketViewId() {
+        return marketViewId;
+    }
 
+    public void setMarketViewId(int marketViewId) {
+        this.marketViewId = marketViewId;
+    }
 
+    public int getRootMarketViewGroupId() {
+        return rootMarketViewGroupId;
+    }
 
+    public void setRootMarketViewGroupId(int rootMarketViewGroupId) {
+        this.rootMarketViewGroupId = rootMarketViewGroupId;
+    }
 
+    public String getPath() {
+        return path;
+    }
 
+    public void setPath(String path) {
+        this.path = path;
+    }
 
+    public List<Object> getMarketTags() {
+        return marketTags;
+    }
 
+    public void setMarketTags(List<Object> marketTags) {
+        this.marketTags = marketTags;
+    }
 
+    public List<BetItem> getBetItems() {
+        return betItems;
+    }
+
+    public void setBetItems(List<BetItem> betItems) {
+        this.betItems = betItems;
+    }
+
+    public LiveData getLiveData() {
+        return liveData;
+    }
+
+    public void setLiveData(LiveData liveData) {
+        this.liveData = liveData;
+    }
+
+    public String getDisplayFormat() {
+        return displayFormat;
+    }
+
+    public void setDisplayFormat(String displayFormat) {
+        this.displayFormat = displayFormat;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public int getImageId() {
+        return imageId;
+    }
+
+    public void setImageId(int imageId) {
+        this.imageId = imageId;
+    }
+
+    public String getBetViewKey() {
+        return betViewKey;
+    }
+
+    public void setBetViewKey(String betViewKey) {
+        this.betViewKey = betViewKey;
+    }
+
+    public String getModelType() {
+        return modelType;
+    }
+
+    public void setModelType(String modelType) {
+        this.modelType = modelType;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
 }

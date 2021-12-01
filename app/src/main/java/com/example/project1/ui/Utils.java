@@ -1,5 +1,7 @@
 package com.example.project1.ui;
 
+import android.os.SystemClock;
+
 import androidx.annotation.Nullable;
 
 import java.text.ParseException;
@@ -23,7 +25,6 @@ public class Utils {
         return format.format(date);
     }
 
-
     public static String correctdateformer(String former){
 
         Date createDate = Utils.toDate(former, "HH:mm:ss.SSSSSSS");
@@ -35,12 +36,6 @@ public class Utils {
             String formatedCreatedDate = Utils.toString(createDate, "HH:mm:ss");
             return formatedCreatedDate;
         }
-
-
-
     }
-
-
-
 
 }

@@ -43,13 +43,11 @@ public class GameAdapter extends RecyclerView.Adapter<GameAdapter.ItemViewHolder
     public static class ItemViewHolder extends RecyclerView.ViewHolder {
         TextView competitor1;
         TextView competitor2;
-        TextView Elapsed;
         Chronometer Elapsed1;
         public ItemViewHolder(View view) {
             super(view);
             competitor1 = (TextView) itemView.findViewById(R.id.competitor1);
             competitor2 = (TextView) itemView.findViewById(R.id.competitor2);
-            Elapsed = (TextView) itemView.findViewById(R.id.Elapsed);
             Elapsed1 = (Chronometer)itemView.findViewById(R.id.chronometer);
 
         }
@@ -65,31 +63,19 @@ public class GameAdapter extends RecyclerView.Adapter<GameAdapter.ItemViewHolder
     public void onBindViewHolder(ItemViewHolder holder, int position) {
         holder.competitor1.setText(event.get(position).getAdditionalCaptions().getCompetitor1());
         holder.competitor2.setText(event.get(position).getAdditionalCaptions().getCompetitor2());
-        //date edit format
-        String elapsedtimefinal =Utils.correctdateformer(event.get(position).getLiveData().getElapsed());
-        holder.Elapsed.setText(elapsedtimefinal);
-        System.out.println("GAME TIME: "+elapsedtimefinal);
 
-        //String timestampStr = "14:35:06";
+        //date edit format for update
+        String elapsedtimefinal =Utils.correctdateformer(event.get(position).getLiveData().getElapsed()); //Format Type: "HH:MM:SS"
         String[] tokens = elapsedtimefinal.split(":");
         int hours = Integer.parseInt(tokens[0]);
         int minutes = Integer.parseInt(tokens[1]);
         int seconds = Integer.parseInt(tokens[2]);
-        int duration = 3600 * hours + 60 * minutes + seconds;
-        System.out.println("fix timing-----------: "+hours);
-
+        System.out.println("---------------Time Spliting: Hours: "+hours+" Minutes: " + minutes +" Seconds: "+ seconds+"-----------------");
         holder.Elapsed1.setBase(SystemClock.elapsedRealtime() - ( hours * 3600000  +  minutes * 60000     +       seconds * 1000));
         holder.Elapsed1.start();
-
-
-
-
-
-
-
-
-
     }
+
+
 
     @Override
     public int getItemCount() {

@@ -12,7 +12,7 @@ import com.example.project1.io.APIClient;
 import com.example.project1.io.gamemodels.Event;
 import com.example.project1.io.gamemodels.GamesReceiver;
 import com.example.project1.io.headmodels.BetViews;
-import com.example.project1.io.headmodels.HeadLines;
+import com.example.project1.io.headmodels.HeadLinesReceiver;
 import com.example.project1.io.paths.GamesEndPoints;
 import com.example.project1.io.paths.HeadlinesEndPoints;
 import com.example.project1.ui.adapters.GameAdapter;
@@ -61,10 +61,10 @@ public class recyActivity extends AppCompatActivity {
 
     private void loadHeadLines() {
         HeadlinesEndPoints apiService = APIClient.getClient().create(HeadlinesEndPoints.class);
-        Call<List<HeadLines>> call = apiService.getBetViews(token);
-        call.enqueue(new Callback<List<HeadLines>>() {
+        Call<List<HeadLinesReceiver>> call = apiService.getBetViews(token);
+        call.enqueue(new Callback<List<HeadLinesReceiver>>() {
             @Override
-            public void onResponse(Call<List<HeadLines>> call, Response<List<HeadLines>> response) {
+            public void onResponse(Call<List<HeadLinesReceiver>> call, Response<List<HeadLinesReceiver>> response) {
                 if(response.isSuccessful()){
                     headLines.clear();
                     headLines.addAll(response.body().get(0).getBetViews());
@@ -74,7 +74,7 @@ public class recyActivity extends AppCompatActivity {
                 }
             }
             @Override
-            public void onFailure(Call<List<HeadLines>> call, Throwable t) {
+            public void onFailure(Call<List<HeadLinesReceiver>> call, Throwable t) {
                 Log.e("Failure Failure Failure Failure Failure Failure Failure Failure Failure Failure Failure Failure Failure Failure", t.toString());
             }
         });

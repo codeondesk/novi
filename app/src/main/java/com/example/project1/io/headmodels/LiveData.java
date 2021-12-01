@@ -1,28 +1,26 @@
-package com.example.project1.io.gamemodels;
-
-
-import com.google.gson.annotations.SerializedName;
+package com.example.project1.io.headmodels;
 
 import java.util.Date;
+import java.util.List;
 
 public class LiveData{
-    private String elapsed;
     private String remaining;
     private double remainingSeconds;
     private int homePoints;
     private int awayPoints;
-    private Object quarterScores;
+    private List<QuarterScore> quarterScores;
     private boolean homePossession;
     private boolean supportsAchievements;
     private String liveStreamingCountries;
     private int sportradarMatchId;
     private Date referenceTime;
     private int referenceTimeUnix;
+    private String elapsed;
     private double elapsedSeconds;
     private String duration;
-    private int durationSeconds;
-    private String timeToNextPhase;
-    private double timeToNextPhaseSeconds;
+    private double durationSeconds;
+    private Object timeToNextPhase;
+    private Object timeToNextPhaseSeconds;
     private String phaseSysname;
     private String phaseCaption;
     private String phaseCaptionLong;
@@ -33,14 +31,6 @@ public class LiveData{
     private boolean supportsActions;
     private Object timeline;
     private int adjustTimeMillis;
-
-    public String getElapsed() {
-        return elapsed;
-    }
-
-    public void setElapsed(String elapsed) {
-        this.elapsed = elapsed;
-    }
 
     public String getRemaining() {
         return remaining;
@@ -74,11 +64,11 @@ public class LiveData{
         this.awayPoints = awayPoints;
     }
 
-    public Object getQuarterScores() {
+    public List<QuarterScore> getQuarterScores() {
         return quarterScores;
     }
 
-    public void setQuarterScores(Object quarterScores) {
+    public void setQuarterScores(List<QuarterScore> quarterScores) {
         this.quarterScores = quarterScores;
     }
 
@@ -130,6 +120,14 @@ public class LiveData{
         this.referenceTimeUnix = referenceTimeUnix;
     }
 
+    public String getElapsed() {
+        return elapsed;
+    }
+
+    public void setElapsed(String elapsed) {
+        this.elapsed = elapsed;
+    }
+
     public double getElapsedSeconds() {
         return elapsedSeconds;
     }
@@ -146,27 +144,27 @@ public class LiveData{
         this.duration = duration;
     }
 
-    public int getDurationSeconds() {
+    public double getDurationSeconds() {
         return durationSeconds;
     }
 
-    public void setDurationSeconds(int durationSeconds) {
+    public void setDurationSeconds(double durationSeconds) {
         this.durationSeconds = durationSeconds;
     }
 
-    public String getTimeToNextPhase() {
+    public Object getTimeToNextPhase() {
         return timeToNextPhase;
     }
 
-    public void setTimeToNextPhase(String timeToNextPhase) {
+    public void setTimeToNextPhase(Object timeToNextPhase) {
         this.timeToNextPhase = timeToNextPhase;
     }
 
-    public double getTimeToNextPhaseSeconds() {
+    public Object getTimeToNextPhaseSeconds() {
         return timeToNextPhaseSeconds;
     }
 
-    public void setTimeToNextPhaseSeconds(double timeToNextPhaseSeconds) {
+    public void setTimeToNextPhaseSeconds(Object timeToNextPhaseSeconds) {
         this.timeToNextPhaseSeconds = timeToNextPhaseSeconds;
     }
 
