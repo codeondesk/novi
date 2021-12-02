@@ -32,7 +32,7 @@ public class Utils {
             String formatedCreatedDate = Utils.toString(createDate, "HH:mm:ss");
             return formatedCreatedDate;
         }else{
-            createDate = Utils.toDate(former, "SSSSSSSS.HH:mm:ss.SSSSSSS");
+            createDate = Utils.toDate(former, "SSSSSSSS.SS:mm:ss.SSSSSSS");
             String formatedCreatedDate = Utils.toString(createDate, "HH:mm:ss");
             return formatedCreatedDate;
         }
